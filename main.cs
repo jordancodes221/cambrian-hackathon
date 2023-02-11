@@ -14,11 +14,11 @@ namespace Hackathon
             // is Int
             int inputAsInt;
             bool parseSuccess = int.TryParse(inputAsString, out inputAsInt);
-                if (!parseSuccess)
-                {
-                    Console.WriteLine("You did not enter an integer. Try again.");
-                    return false;
-                }
+            if (!parseSuccess)
+            {
+                Console.WriteLine("You did not enter an integer. Try again.");
+                return false;
+            }
 
             // is within range - it is very elegant how we store inputAsInt and then use it here
             if (inputAsInt < startRange || inputAsInt > endRange)
@@ -46,34 +46,13 @@ namespace Hackathon
             Console.WriteLine("\n     Enter a selection (1-2):\n");
 
             Console.ForegroundColor = ConsoleColor.White;
-            
+
             string menuSelectionAsString = Console.ReadLine();
             while (!inputOK(menuSelectionAsString, 1, 2))
             {
                 menuSelectionAsString = Console.ReadLine();
             }
             int menuSelection = Convert.ToInt32(menuSelectionAsString);
-
-            //instantiates menuSelection for try - catch which handles any non integer input
-            int menuSelection = -1;
-
-
-            try
-            {
-                menuSelection = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (System.FormatException)
-            {
-                Console.WriteLine("Command not recognized! Try again.");
-                goto Start;
-
-            }
-
-            if (menuSelection < 1 || menuSelection > 2)
-            {
-                Console.WriteLine("Command not recognized! Try again.");
-                goto Start;
-            }
 
             bool hunger = true;
             bool codingKnowledge = false;
@@ -85,7 +64,12 @@ namespace Hackathon
                     Console.WriteLine("\r\nThe smell of freshly made toast fills the room, waking you from sleep only to meet with the cold air that lingered from the night. As your eyes open, the morning light hits you...\r\n ");
                     Console.WriteLine("Do you: \n Sleep a bit longer (1)");
                     Console.WriteLine("Get up and eat breakfast(2)");
+
                     string menuInput = Console.ReadLine();
+                    while (!inputOK(menuInput, 1, 2))
+                    {
+                        menuInput = Console.ReadLine();
+                    }
 
                     if (menuInput == "1")
                     {
@@ -131,7 +115,7 @@ namespace Hackathon
             }
 
             Console.WriteLine("                  _.--\"\"'-----,   `\"--.._\r\n                       .-''   _/_      ; .'\"----,`-,\r\n                     .'      :___:     ; :      ;;`.`.\r\n                    .      _.- _.-    .' :      ::  `..\r\n                 __;..----------------' :: ___  ::   ;;\r\n            .--\"\". '           ___.....`:=(___)-' :--'`.\r\n          .'   .'         .--''__       :       ==:    ;\r\n      .--/    /        .'.''     ``-,   :         :   '`-.\r\n   .\"', :    /       .'-`\\\\       .--.\\ :         :  ,   _\\\r\n  ;   ; |   ;       /:'  ;;      /__  \\\\:         :  :  /_\\\\\r\n  |\\_/  |   |      / \\__//      /\"--\\\\ \\:         :  : ;|`\\|    \r\n  : \"  /\\__/\\____//   \"\"\"      /     \\\\ :         :  : :|'||\r\n[\"\"\"\"\"\"\"\"\"--------........._  /      || ;      __.:--' :|//|\r\n \"------....______         ].'|      // |--\"\"\"'__...-'`\\ \\//\r\n   `| WVE230L |__;_...--'\": :  \\    //  |---\"\"\"      \\__\\_/\r\n     \"\"\"\"\"\"\"\"\"'            \\ \\  \\_.//  /\r\n       `---'                \\ \\_     _'\r\n                             `--`---'  dp");
-            Console.WriteLine("\nIt seemed to have snowed a lot last night.. What do you do: \n Take the risk, get in your car, and go. (1)");
+            Console.WriteLine("\n\nIt seemed to have snowed a lot last night.. What do you do: \n Take the risk, get in your car, and go. (1)");
             Console.WriteLine("Shovel your driveway with what little time you have left. (2)");
 
             int menuSelection2 = Convert.ToInt32(Console.ReadLine());
@@ -185,7 +169,7 @@ namespace Hackathon
 
             Console.WriteLine("// \"\"--.._\r\n||  (_)  _ \"-._\r\n||    _ (_)    '-.\r\n||   (_)   __..-'\r\n \\\\__..--\"\"");
 
-            Console.WriteLine("After a welcoming presentation, you begin your journey, and while deep in code, the pizza gets delivered for everybody to enjoy.\r\n");
+            Console.WriteLine("\n\nAfter a welcoming presentation, you begin your journey, and while deep in code, the pizza gets delivered for everybody to enjoy.\r\n");
             Console.WriteLine("You began to wonder if you should grab something to eat. Do you: \n Eat pizza (1)");
             Console.WriteLine("Trade pizza to coding professor for ultimate coding knowledge? (2)");
             int menuInput2 = Convert.ToInt32(Console.ReadLine());
@@ -227,7 +211,10 @@ namespace Hackathon
                             int answer2 = Convert.ToInt32(Console.ReadLine());
                             if (answer2 == 6)
                             {
-                                Console.WriteLine("You did it! You defeated the AI bot with your supreme coding knowledge");
+                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                Console.WriteLine("   .\r\n       ,O,\r\n      ,OOO,\r\n'oooooOOOOOooooo'\r\n  `OOOOOOOOOOO`\r\n    `OOOOOOO`\r\n    OOOO'OOOO\r\n   OOO'   'OOO\r\n  O'         'O");
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("\n\nYou did it! You defeated the AI bot with your supreme coding knowledge");
                             }
                             else
                             {
@@ -246,15 +233,20 @@ namespace Hackathon
                     {
                         if (codingKnowledge == true)
                         {
-                            Console.WriteLine("You did it! You defeated the AI bot with your supreme coding knowledge");
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("   .\r\n       ,O,\r\n      ,OOO,\r\n'oooooOOOOOooooo'\r\n  `OOOOOOOOOOO`\r\n    `OOOOOOO`\r\n    OOOO'OOOO\r\n   OOO'   'OOO\r\n  O'         'O");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine("\n\nYou did it! You defeated the AI bot with your supreme coding knowledge");
                         }
                         else
                         {
-                            Console.WriteLine("OH NO! You were terminated. \nWithout the ultimate coding knowledge, you were no match for the AI bot.");
+                            Console.WriteLine("\nOH NO! You were terminated. \nWithout the ultimate coding knowledge, you were no match for the AI bot.");
                         }
                         break;
                     }
             }
+            Console.WriteLine("With the day spent- the judges shared everyone's work, and you felt a sense of pride after it was all over.\nIt was time to go home, but fun getting to spend your free time learning new things and meeting new people.\n\nWith a goodbye, everyone parted ways. \nMaybe you won, or you might have lost, but at the end of the day, you made something that worked!\r\n\r\nBe proud of yourself, Hackathon attendees! You did well.\r\n");
+            
         }
     }
 }
