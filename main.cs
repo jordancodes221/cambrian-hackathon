@@ -39,13 +39,16 @@ namespace Hackathon
                 goto Start;
             }
 
+            bool hunger = true;
+            bool codingKnowledge = false;
+
             switch (menuSelection)
             {
                 case 1:
                     Console.WriteLine("      ()___ \r\n    ()//__/)_________________()\r\n    ||(___)//#/_/#/_/#/_/#()/||\r\n    ||----|#| |#|_|#|_|#|_|| ||\r\n    ||____|_|#|_|#|_|#|_|#||/||\r\njgs ||    |#|_|#|_|#|_|#|_||");
                     Console.WriteLine("\r\nThe smell of freshly made toast fills the room, waking you from sleep only to meet with the cold air that lingered from the night. As your eyes open, the morning light hits you...\r\n ");
                     Console.WriteLine("Do you: \n Sleep a bit longer (1)");
-                    Console.WriteLine("Get up (2)");
+                    Console.WriteLine("Get up and eat breakfast(2)");
                     string menuInput = Console.ReadLine();
 
                     if (menuInput == "1")
@@ -55,21 +58,31 @@ namespace Hackathon
                         int wakeUp = snooze.Next(1, 3);
                         if (wakeUp == 1)
                         {
-                            Console.WriteLine("It's noon! You slept in! Looks like you missed the Hackathon! \n");
-                            Console.WriteLine("\n------GAME OVER------");
-                            goto Start;
-                                              
+                            Console.WriteLine("It's noon! You slept in! Looks like you missed the Hackathon!\n");
+                            Console.WriteLine("\n\n------GAME OVER------\n\n");
+                            Console.WriteLine("Try Again? (y/n)");
+                            string tryAgain = Console.ReadLine();
+                            if (tryAgain == "y")
+                            {
+                                goto Start;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Goodbye!");
+                                Environment.Exit(0);
+                            }
+
                         }
                         else
                         {
                             Console.WriteLine("Wake up sleepyhead, there's no time for breakfast but if you hurry you'll make it in time!\n");
-                            bool hunger = true;
+                            hunger = true;
                         }
                     }
                     else
                     {
                         Console.WriteLine("\nYou eat breakfast just in time. Time to go!\n");
-                        bool hunger = false;
+                         hunger = false;
 
                     }
                     break;
@@ -93,18 +106,29 @@ namespace Hackathon
                     Console.WriteLine("You got stuck in the driveway!");
                     Console.WriteLine("Do you: \n Call a friend? (1)");
                     Console.WriteLine("Take the bus (2)");
-                    string menuInput = Console.ReadLine();
+                    int menuInput = Convert.ToInt32(Console.ReadLine());
 
-                    if (menuInput == "1")
+                    if (menuInput == 1)
                     {
                         //50/50 chance of missing hackathon
                         Random drive = new Random();
                         int crash = drive.Next(1, 3);
                         if (crash == 1)
                         {
-                            Console.WriteLine("Oh no! Your friend crashed! \n");
-                            Console.WriteLine("\n------GAME OVER------");
-                            goto Start;
+                            Console.WriteLine("\nOh no! Your friend crashed! \n");
+                            Console.WriteLine("\n\n------GAME OVER------\n\n");
+                            Console.WriteLine("Try Again? (y/n)");
+                            string tryAgain = Console.ReadLine();
+                            if (tryAgain == "y")
+                            {
+                                goto Start;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Goodbye!");
+                                Environment.Exit(0);
+                            }
+                            
 
                         }
                         else
@@ -123,6 +147,58 @@ namespace Hackathon
 
             }
 
+            Console.WriteLine("// \"\"--.._\r\n||  (_)  _ \"-._\r\n||    _ (_)    '-.\r\n||   (_)   __..-'\r\n \\\\__..--\"\"");
+
+            Console.WriteLine("After a challenging morning of Hackathoning, it's time for a pizza lunch.");
+            Console.WriteLine("Do you: \n Eat pizza (1)");
+            Console.WriteLine("Trade pizza to coding professor for ultimate coding knowledge? (2)");
+            int menuInput2 = Convert.ToInt32(Console.ReadLine());
+            switch (menuInput2)
+            {
+                case 1: 
+                    if (hunger == true)
+                    {
+                        Console.WriteLine("You passed out from low blood-sugar. You should've had some breakfast!");
+                        Console.WriteLine("\n\n---------GAME OVER---------\n\n");
+                        
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Ultimate coding knowledge recieved!");
+                    codingKnowledge = true;
+                    break;
+            }
+
+            //Scenario 4 - AI Robot Battle 
+            //Ascii art robot
+            Console.WriteLine("           ___\r\n          |_|_|\r\n          |_|_|              _____\r\n          |_|_|     ____    |*_*_*|\r\n _______   _\\__\\___/ __ \\____|_|_   _______\r\n/ ____  |=|      \\  <_+>  /      |=|  ____ \\\r\n~|    |\\|=|======\\\\______//======|=|/|    |~\r\n |_   |    \\      |      |      /    |    |\r\n  \\==-|     \\     |  2D  |     /     |----|~~/\r\n  |   |      |    |      |    |      |____/~/\r\n  |   |       \\____\\____/____/      /    / /\r\n  |   |         {----------}       /____/ /\r\n  |___|        /~~~~~~~~~~~~\\     |_/~|_|/\r\n   \\_/        |/~~~~~||~~~~~\\|     /__|\\\r\n   | |         |    ||||    |     (/|| \\)\r\n   | |        /     |  |     \\       \\\\\r\n   |_|        |     |  |     |\r\n              |_____|  |_____|\r\n              (_____)  (_____)\r\n              |     |  |     |\r\n              |     |  |     |\r\n              |/~~~\\|  |/~~~\\|\r\n              /|___|\\  /|___|\\\r\n             <_______><_______>");
+            Console.WriteLine("\n\nAll of a sudden, a fearsome AI bot appears, intent on neutralizing all human coders.");
+            Console.WriteLine("\"Beep Boop Bop... Greetings human... You must pass my challenges or be destroyed\"");
+            Console.WriteLine("Do you:\n");
+            Console.WriteLine("Attempt challenges (1)\n Fry Bot's circuit board (2)");
+            
+            int choice4 = Convert.ToInt32(Console.ReadLine());
+            switch (choice4)
+            {
+                case 1:
+                    {
+
+                        break;
+                    }
+                case 2:
+                    {
+                        if (codingKnowledge == true)
+                        {
+                            Console.WriteLine("You did it! You defeated the AI bot with your supreme coding knowledge");
+                        }
+                        else
+                        {
+                            Console.WriteLine("OH NO! You were terminated. \nWithout the ultimate coding knowledge, you were no match for the AI bot.");
+                        }
+                        break;
+                    }
+            }
+            
 
 
 
