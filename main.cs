@@ -42,7 +42,6 @@ namespace Hackathon
             bool hunger = true;
             bool codingKnowledge = false;
 
-            //scenario 1
             switch (menuSelection)
             {
                 case 1:
@@ -95,9 +94,6 @@ namespace Hackathon
 
             }
 
-            //scenario2 
-            //car ascii art
-            
             Console.WriteLine("                  _.--\"\"'-----,   `\"--.._\r\n                       .-''   _/_      ; .'\"----,`-,\r\n                     .'      :___:     ; :      ;;`.`.\r\n                    .      _.- _.-    .' :      ::  `..\r\n                 __;..----------------' :: ___  ::   ;;\r\n            .--\"\". '           ___.....`:=(___)-' :--'`.\r\n          .'   .'         .--''__       :       ==:    ;\r\n      .--/    /        .'.''     ``-,   :         :   '`-.\r\n   .\"', :    /       .'-`\\\\       .--.\\ :         :  ,   _\\\r\n  ;   ; |   ;       /:'  ;;      /__  \\\\:         :  :  /_\\\\\r\n  |\\_/  |   |      / \\__//      /\"--\\\\ \\:         :  : ;|`\\|    \r\n  : \"  /\\__/\\____//   \"\"\"      /     \\\\ :         :  : :|'||\r\n[\"\"\"\"\"\"\"\"\"--------........._  /      || ;      __.:--' :|//|\r\n \"------....______         ].'|      // |--\"\"\"'__...-'`\\ \\//\r\n   `| WVE230L |__;_...--'\": :  \\    //  |---\"\"\"      \\__\\_/\r\n     \"\"\"\"\"\"\"\"\"'            \\ \\  \\_.//  /\r\n       `---'                \\ \\_     _'\r\n                             `--`---'  dp");
                     Console.WriteLine("\nLooks like it snowed a lot last night! Do you: \n Get in your car and leave (1)");
             Console.WriteLine("Shovel the driveway (2)");
@@ -147,9 +143,10 @@ namespace Hackathon
                 case 2:
                     Console.WriteLine("You manage to not get stuck in the snow and make it to the hackathon\\n\");\n");                    
                     break;
+
+
             }
-               //scenario3
-               //pizza ascii art
+
             Console.WriteLine("// \"\"--.._\r\n||  (_)  _ \"-._\r\n||    _ (_)    '-.\r\n||   (_)   __..-'\r\n \\\\__..--\"\"");
 
             Console.WriteLine("After a challenging morning of Hackathoning, it's time for a pizza lunch.");
@@ -185,7 +182,28 @@ namespace Hackathon
             {
                 case 1:
                     {
-
+                        Console.WriteLine("What is 3/5 of 155?\n");
+                        int answer = Convert.ToInt32(Console.ReadLine());
+                        if (answer == 93)
+                        {
+                            Console.WriteLine("Correct.\n\n");
+                            Console.WriteLine("3x + 5 = 23\nSolve for x");
+                            int answer2 = Convert.ToInt32(Console.ReadLine());
+                            if (answer2 == 6)
+                            {
+                                Console.WriteLine("You did it! You defeated the AI bot with your supreme coding knowledge");
+                            }
+                            else
+                            {
+                                Console.WriteLine("WRONG.");
+                                Console.WriteLine("---------GAME OVER---------");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("WRONG.");
+                            Console.WriteLine("---------GAME OVER---------");
+                        }
                         break;
                     }
                 case 2:
