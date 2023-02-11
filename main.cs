@@ -2,6 +2,35 @@ namespace Hackathon
 {
     internal class Program
     {
+        public static bool inputOK(string inputAsString, int startRange, int endRange)
+        {
+            // Not null or empty
+            if (string.IsNullOrEmpty(inputAsString))
+            {
+                Console.WriteLine("User input was empty. Try again.");
+                return false;
+            }
+
+            // is Int
+            int inputAsInt;
+            bool parseSuccess = int.TryParse(inputAsString, out inputAsInt);
+                if (!parseSuccess)
+                {
+                    Console.WriteLine("You did not enter an integer. Try again.");
+                    return false;
+                }
+
+            // is within range - it is very elegant how we store inputAsInt and then use it here
+            if (inputAsInt < startRange || inputAsInt > endRange)
+            {
+                Console.WriteLine("You entered an integer, but it does not match a valid option. Try again.");
+                return false;
+            }
+
+            // Only make it here if all is good
+            return true;
+        }
+
         static void Main(string[] args)
         {
         Start:
@@ -17,6 +46,13 @@ namespace Hackathon
             Console.WriteLine("\n     Enter a selection (1-2):\n");
 
             Console.ForegroundColor = ConsoleColor.White;
+            
+            string menuSelectionAsString = Console.ReadLine();
+            while (!inputOK(menuSelectionAsString, 1, 2))
+            {
+                menuSelectionAsString = Console.ReadLine();
+            }
+            int menuSelection = Convert.ToInt32(menuSelectionAsString);
 
             //instantiates menuSelection for try - catch which handles any non integer input
             int menuSelection = -1;
