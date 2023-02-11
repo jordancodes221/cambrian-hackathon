@@ -15,7 +15,7 @@
             //instantiates menuSelection for try - catch which handles any non integer input
             int menuSelection = -1;
 
- 
+           
             try
             {
                 menuSelection = Convert.ToInt32(Console.ReadLine());
@@ -27,7 +27,7 @@
 
             }
 
-           if (menuSelection < 1 || menuSelection > 2)
+            if (menuSelection < 1 || menuSelection > 2)
             {
                 Console.WriteLine("Command not recognized! Try again.");
                 goto Start;
@@ -36,17 +36,35 @@
             switch (menuSelection)
             {
                 case 1:
-                    Console.WriteLine("It's the morning of the hackathon! You s ");
-
+                    Console.WriteLine("      ()___ \r\n    ()//__/)_________________()\r\n    ||(___)//#/_/#/_/#/_/#()/||\r\n    ||----|#| |#|_|#|_|#|_|| ||\r\n    ||____|_|#|_|#|_|#|_|#||/||\r\njgs ||    |#|_|#|_|#|_|#|_||");
+                    Console.WriteLine("\r\nThe smell of freshly made toast fills the room, waking you from sleep only to meet with the cold air that lingered from the night. As your eyes open, the morning light hits you...\r\n ");
+                    Console.WriteLine("Do you: \n Sleep a bit longer (1)");
+                    Console.WriteLine("Get up (2)");
                     string menuInput = Console.ReadLine();
 
-                    if (menuInput == "")
+                    if (menuInput == "1")
                     {
-
+                        //50/50 chance of missing hackathon
+                        Random snooze = new Random();
+                        int wakeUp = snooze.Next(1, 3);
+                        if (wakeUp == 1)
+                        {
+                            Console.WriteLine("It's noon! You slept in! Looks like you missed the Hackathon! \n");
+                            Console.WriteLine("\n------GAME OVER------");
+                            goto Start;
+                                              
+                        }
+                        else
+                        {
+                            Console.WriteLine("Wake up sleepyhead, there's no time for breakfast but if you hurry you'll make it in time!\n");
+                            bool hunger = true;
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("");
+                        Console.WriteLine("You eat breakfast just in time. Time to go!");
+                        bool hunger = false;
+
                     }
                     break;
 
@@ -58,6 +76,6 @@
 
             }
 
-
-                    Console.WriteLine("You're running late and looks like it snowed a lot last night! Do you: \n Get in your car and leave (1)");
+            Console.WriteLine("                  _.--\"\"'-----,   `\"--.._\r\n                       .-''   _/_      ; .'\"----,`-,\r\n                     .'      :___:     ; :      ;;`.`.\r\n                    .      _.- _.-    .' :      ::  `..\r\n                 __;..----------------' :: ___  ::   ;;\r\n            .--\"\". '           ___.....`:=(___)-' :--'`.\r\n          .'   .'         .--''__       :       ==:    ;\r\n      .--/    /        .'.''     ``-,   :         :   '`-.\r\n   .\"', :    /       .'-`\\\\       .--.\\ :         :  ,   _\\\r\n  ;   ; |   ;       /:'  ;;      /__  \\\\:         :  :  /_\\\\\r\n  |\\_/  |   |      / \\__//      /\"--\\\\ \\:         :  : ;|`\\|    \r\n  : \"  /\\__/\\____//   \"\"\"      /     \\\\ :         :  : :|'||\r\n[\"\"\"\"\"\"\"\"\"--------........._  /      || ;      __.:--' :|//|\r\n \"------....______         ].'|      // |--\"\"\"'__...-'`\\ \\//\r\n   `| WVE230L |__;_...--'\": :  \\    //  |---\"\"\"      \\__\\_/\r\n     \"\"\"\"\"\"\"\"\"'            \\ \\  \\_.//  /\r\n       `---'                \\ \\_     _'\r\n                             `--`---'  dp");
+                    Console.WriteLine("\nLooks like it snowed a lot last night! Do you: \n Get in your car and leave (1)");
             Console.WriteLine("Shovel the driveway (2)");
