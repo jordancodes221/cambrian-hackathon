@@ -15,11 +15,7 @@
             //instantiates menuSelection for try - catch which handles any non integer input
             int menuSelection = -1;
 
-            if (menuSelection < 1 || menuSelection > 2)
-            {
-                Console.WriteLine("Command not recognized! Try again.");
-                goto Start;
-            }
+ 
             try
             {
                 menuSelection = Convert.ToInt32(Console.ReadLine());
@@ -29,6 +25,12 @@
                 Console.WriteLine("Command not recognized! Try again.");
                 goto Start;
 
+            }
+
+           if (menuSelection < 1 || menuSelection > 2)
+            {
+                Console.WriteLine("Command not recognized! Try again.");
+                goto Start;
             }
 
             switch (menuSelection)
